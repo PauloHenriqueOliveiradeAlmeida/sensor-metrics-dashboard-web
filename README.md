@@ -10,7 +10,7 @@ Projeto desenvolvido como atividade avaliativa para matéria de IOT, o projeto c
 ## 🦾 Funcionalidades
 
 - Recebe eventos via websocket
-- Exbe os dados recebidos em dois gráficos
+- Exibe os dados recebidos em dois gráficos
 
 
 ## 🔧 Configuração do projeto
