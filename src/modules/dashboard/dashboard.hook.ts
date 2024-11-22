@@ -19,20 +19,10 @@ export function useDashboard() {
   } = useNotifier();
 
   onUpdateSensorMetrics((payload) => {
-    const resizedHumidityMetrics = resizeData(
-      payload.temperature_metrics,
-      payload.humidity_metrics,
-    );
-
-    const resizedTemperatureMetrics = resizeData(
-      payload.humidity_metrics,
-      payload.temperature_metrics,
-    );
-
     setCorrelationMetrics(
       payload.temperature_metrics.map((_, index) => ({
-        temperature: resizedTemperatureMetrics[index],
-        humidity: resizedHumidityMetrics[index],
+        temperature: Object.values(temperatureMetrics || {})[index],
+        humidity: Object.values(humidityMetrics || {})[index],
       })),
     );
     setTemperatureMetrics({
@@ -56,19 +46,6 @@ export function useDashboard() {
     setTemperatureStandardDeviation(payload.temperature_standard_deviation);
     setHumidityStandardDeviation(payload.humidity_standard_deviation);
   });
-
-  const resizeData = (firstData: number[], secondData: number[]) => {
-    if (firstData.length > secondData.length) {
-      secondData = Array.from(
-        {
-          length: firstData.length,
-        },
-        (_, index) => secondData[index % secondData.length],
-      );
-    }
-
-    return secondData;
-  };
 
   return {
     states: {
