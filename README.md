@@ -1,50 +1,44 @@
-# React + TypeScript + Vite
+# 🚨 Sensor Metrics Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido como atividade avaliativa para matéria de IOT, o projeto consiste em um frontend que recebe mensagens via websocket para exibições de dados em um dashboard
 
-Currently, two official plugins are available:
+## 📚 Stack usada
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Stack](https://img.shields.io/badge/typescript-blue?logo=typescript&logoColor=white&style=for-the-badge) ![Stack](https://img.shields.io/badge/react-blue?logo=react&logoColor=white&style=for-the-badge) ![Stack](https://img.shields.io/badge/vite-purple?logo=vite&logoColor=white&style=for-the-badge)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🦾 Funcionalidades
 
-- Configure the top-level `parserOptions` property like this:
+- Recebe eventos via websocket
+- Exibe os dados recebidos em dois gráficos
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+
+## 🔧 Configuração do projeto
+#### 📁 Ajustar variáveis
+
+Crie um arquivo `.env` na raiz do projeto e adicione as variáveis necessárias (há um `.env.example` de demonstração):
+
+```ini
+VITE_WEBSOCKET_URL=string
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 📦 Instalação dos pacotes
+Execute a instalação das dependências necessárias:
+```ini
+yarn
 ```
+
+### 🚀 Executando o projeto:
+Execute os dois sensores:
+```ini
+yarn build
+
+yarn preview
+```
+
+## 🏃 Testando
+Para testar, será necessário utilizar algum backend com suporte a MQTT ou algo do gênero, ou, instalar os sensores e o backend do projeto:
+
+Sensores: https://github.com/PauloHenriqueOliveiradeAlmeida/sensor-metrics-sensors
+
+Backend: https://github.com/PauloHenriqueOliveiradeAlmeida/sensor-metrics-dashboard-backend
